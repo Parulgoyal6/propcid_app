@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69546296217",
+    "project_id": "propcidinfotech8",
+    "storage_bucket": "propcidinfotech8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69546296217:android:53534d60aa853eda574908",
+        "android_client_info": {
+          "package_name": "com.propcid.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc5CKXe5KmzoAkDxuDF0oz4AjpJvgklPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

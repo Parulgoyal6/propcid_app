@@ -1,0 +1,157 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required for the "Near Me" property search (geolocator plugin) -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- Required for Voice Search (speech_to_text plugin) -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- Required on Android 13+ to show push notifications (FCM) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission
+    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    android:maxSdkVersion="29" />
+  
+  
+   <application
+    android:label="PropCID"
+    android:name="${applicationName}"
+    android:icon="@mipmap/ic_launcher">
+
+
+    <!-- Use Skia because Impeller causes video texture corruption
+         on some Vivo/MediaTek Android devices. -->
+    <meta-data
+        android:name="io.flutter.embedding.android.EnableImpeller"
+        android:value="false" />
+
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyDEWPGxpf3Tb_xoUVu34qfhscsZjTX5oGo"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data
+        android:scheme="com.propcid.app"
+        android:host="login-callback" />
+</intent-filter>
+            <!--
+                Google Sign-In App Link: see AuthService.signInWithGoogle().
+                A verified https:// App Link, unlike the com.propcid.app://
+                custom scheme above (used by email magic-link), still hands
+                off correctly from in-app browsers (Gmail/Outlook) that block
+                custom-scheme redirects.
+                Backed by https://propcid.in/.well-known/assetlinks.json.
+            -->
+            <intent-filter android:autoVerify="true">
+    <action android:name="android.intent.action.VIEW" />
+
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data
+        android:scheme="https"
+        android:host="propcid.in"
+        android:pathPrefix="/login-callback" />
+</intent-filter>
+            <!-- Password-reset deep link: see AuthService.sendPasswordResetEmail -->
+            <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data
+        android:scheme="propcid"
+        android:host="reset-password" />
+</intent-filter>
+            <!--
+                Meta (Facebook/Instagram) OAuth callback: see
+                MetaOAuthService.connect(). Mirrors the reset-password scheme
+                above — same app, same external-browser-redirect pattern
+                already proven by Google Sign-In and password reset.
+                "propcid://meta-callback" must be added to the Meta App's own
+                "Valid OAuth Redirect URIs" list in the Facebook Developer
+                dashboard before this can complete a real handshake — that is
+                a one-time dashboard config step, not something this app can
+                verify or perform itself.
+            -->
+            <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data
+        android:scheme="propcid"
+        android:host="meta-callback" />
+</intent-filter>
+            <!--
+                Team-invite App Link: see InviteDeepLinkHandler and
+                invite-team-member/index.ts:149 (the link it actually sends).
+                autoVerify requires https://propcid.com/.well-known/assetlinks.json
+                to list this app's real applicationId + signing certificate
+                fingerprint — not present yet (see the phase's own notes); until
+                then Android accepts this intent-filter but will not award it
+                verified-link status, so the OS still offers a disambiguation
+                sheet (or opens a browser) instead of silently preferring this
+                app. The filter is still correct to have in place now.
+            -->
+            <intent-filter android:autoVerify="true">
+    <action android:name="android.intent.action.VIEW" />
+
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data
+        android:scheme="https"
+        android:host="propcid.com"
+        android:pathPrefix="/accept-invite" />
+</intent-filter>
+        </activity>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+        <!-- Required on Android 11+ so the speech_to_text plugin can find
+             the on-device speech recognition service (package visibility). -->
+        <intent>
+            <action android:name="android.speech.RecognitionService"/>
+        </intent>
+    </queries>
+</manifest>

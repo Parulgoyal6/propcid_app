@@ -1,0 +1,179 @@
+ M android/app/build.gradle.kts
+ D lib.zip
+ M lib/app.dart
+ M lib/core/animations/page_transitions.dart
+ M lib/core/constants/app_constants.dart
+ M lib/core/theme/app_colors.dart
+ M lib/core/widgets/shimmer_loader.dart
+ M lib/main.dart
+ M lib/models/launch_offer_content.dart
+ D lib/models/profile_model.dart
+ M lib/models/property_detail_bundle.dart
+ M lib/models/smart_query_result.dart
+ M lib/providers/auth_provider.dart
+ M lib/providers/post_property_provider.dart
+ M lib/providers/property_provider.dart
+ M lib/screens/dashboard/broker_dashboard_screen.dart
+ M lib/screens/dashboard/builder_dashboard_screen.dart
+ M lib/screens/dashboard/individual_dashboard_screen.dart
+ M lib/screens/dashboard/influencer_dashboard_screen.dart
+ M lib/screens/home/home_screen.dart
+ M lib/screens/home/widgets/featured_properties_section.dart
+ M lib/screens/home/widgets/property_rail_section.dart
+ M lib/screens/post_property/post_property_screen.dart
+ M lib/screens/post_property/steps/amenities_step.dart
+ M lib/screens/post_property/steps/basic_info_step.dart
+ M lib/screens/post_property/steps/condition_step.dart
+ M lib/screens/post_property/steps/legal_details_step.dart
+ M lib/screens/post_property/steps/media_contact_step.dart
+ M lib/screens/post_property/steps/pricing_step.dart
+ M lib/screens/post_property/steps/property_dimensions_step.dart
+ M lib/screens/post_property/steps/review_step.dart
+ M lib/screens/post_property/steps/type_selection_step.dart
+ M lib/screens/profile/profile_screen.dart
+ M lib/screens/profile_completion/broker_profile_screen.dart
+ M lib/screens/profile_completion/broker_registration/broker_registration_screen.dart
+ M lib/screens/profile_completion/builder_profile_screen.dart
+ M lib/screens/profile_completion/builder_registration/builder_registration_screen.dart
+ M lib/screens/profile_completion/influencer_profile_screen.dart
+ M lib/screens/profile_completion/influencer_registration/influencer_registration_screen.dart
+ M lib/screens/property_detail/property_detail_screen.dart
+ M lib/screens/reels/reels_onboarding_screen.dart
+ M lib/screens/search/search_results_screen.dart
+ M lib/screens/search/search_screen.dart
+ M lib/screens/splash/splash_screen.dart
+ M lib/screens/widgets/broker_quick_actions_widget.dart
+ M lib/screens/widgets/broker_recent_properties_widget.dart
+ M lib/screens/widgets/broker_stats_widget.dart
+ M lib/screens/widgets/builder_quick_actions_widget.dart
+ M lib/screens/widgets/builder_stats_widget.dart
+ M lib/screens/widgets/influencer_quick_actions_widget.dart
+ M lib/screens/widgets/influencer_recent_campaigns_widget.dart
+ M lib/screens/widgets/influencer_stats_widget.dart
+ M lib/services/ai_search_service.dart
+ M lib/services/property_service.dart
+ M lib/services/rbac_service.dart
+ M lib/voice_agent/widgets/floating_ai_orb.dart
+ M lib/widgets/bottom_nav_bar.dart
+ M lib/widgets/premium_launch_banner.dart
+ M lib/widgets/role_guard.dart
+ M lib/widgets/search_bar_widget.dart
+ M linux/flutter/generated_plugin_registrant.cc
+ M linux/flutter/generated_plugin_registrant.h
+ M linux/flutter/generated_plugins.cmake
+ M macos/Flutter/GeneratedPluginRegistrant.swift
+ D "pubspec (2).zip"
+ M pubspec.lock
+ M pubspec.yaml
+ M pubspec.zip
+ D supabase.zip
+ M test/widget_test.dart
+ M windows/flutter/generated_plugin_registrant.cc
+ M windows/flutter/generated_plugin_registrant.h
+ M windows/flutter/generated_plugins.cmake
+?? android/buildlog.txt
+?? assets/
+?? claude.md
+?? docs/
+?? lib/core/navigation/manage_dashboard_dispatcher.dart
+?? lib/core/navigation/workspace_destinations.dart
+?? lib/core/utils/article_html.dart
+?? lib/core/utils/profile_completion.dart
+?? lib/core/utils/profile_link.dart
+?? lib/core/utils/text_input_formatters.dart
+?? lib/core/widgets/empty_state_view.dart
+?? lib/core/widgets/segmented_tab_pill.dart
+?? lib/models/article_model.dart
+?? lib/models/article_summary.dart
+?? lib/models/channel_summary.dart
+?? lib/models/chat_message.dart
+?? lib/models/conversation_summary.dart
+?? lib/models/dashboard_analytics.dart
+?? lib/models/network_models.dart
+?? lib/models/network_stats.dart
+?? lib/models/profile_stats.dart
+?? lib/models/recent_search.dart
+?? lib/models/social_models.dart
+?? lib/models/subscription_summary.dart
+?? lib/models/tagged_project.dart
+?? lib/models/user_profile.dart
+?? lib/providers/article_editor_provider.dart
+?? lib/providers/async_section.dart
+?? lib/providers/chat_thread_provider.dart
+?? lib/providers/dashboard_analytics_provider.dart
+?? lib/providers/messaging_provider.dart
+?? lib/providers/network_hub_provider.dart
+?? lib/providers/network_section_provider.dart
+?? lib/providers/profile_provider.dart
+?? lib/providers/recent_searches_provider.dart
+?? lib/providers/social_provider.dart
+?? lib/providers/subscription_provider.dart
+?? lib/screens/articles/
+?? lib/screens/dashboard/widgets/
+?? lib/screens/home/widgets/empty_rail_placeholder.dart
+?? lib/screens/messaging/
+?? lib/screens/network/
+?? lib/screens/post_property/listing_area_units.dart
+?? lib/screens/post_property/listing_constants.dart
+?? lib/screens/post_property/listing_field_keys.dart
+?? lib/screens/post_property/listing_validation_rules.dart
+?? lib/screens/post_property/listing_validators.dart
+?? lib/screens/post_property/listing_value_aliases.dart
+?? lib/screens/post_property/portal_icon.dart
+?? lib/screens/post_property/portal_kit.dart
+?? lib/screens/post_property/portal_shell.dart
+?? lib/screens/post_property/portal_theme.dart
+?? lib/screens/post_property/widgets/
+?? lib/screens/profile/actions/
+?? lib/screens/profile/profile_role.dart
+?? lib/screens/profile/widgets/
+?? lib/screens/search/widgets/
+?? lib/screens/shared/
+?? lib/screens/social/
+?? lib/screens/stubs/
+?? lib/screens/subscription/
+?? lib/services/article_service.dart
+?? lib/services/dashboard_analytics_service.dart
+?? lib/services/messaging_service.dart
+?? lib/services/network_service.dart
+?? lib/services/profile_view_service.dart
+?? lib/services/ratings_service.dart
+?? lib/services/recent_searches_service.dart
+?? lib/services/social_service.dart
+?? lib/services/subscription_service.dart
+?? lib/services/user_profile_service.dart
+?? lib/widgets/manage_list_tile.dart
+?? lib/widgets/more_bottom_sheet.dart
+?? lib/widgets/shared/
+?? lib/widgets/workspace_drawer.dart
+?? scripts/
+?? shots/
+?? test/article_html_test.dart
+?? test/dashboard_design_parity_test.dart
+?? test/dashboard_regression_test.dart
+?? test/listing_commercial_t10_test.dart
+?? test/listing_constants_parity_test.dart
+?? test/listing_data_contract_t1_test.dart
+?? test/listing_dimensions_portal_parity_test.dart
+?? test/listing_land_t8_test.dart
+?? test/listing_media_t4_test.dart
+?? test/listing_others_t7_test.dart
+?? test/listing_pg_t9_test.dart
+?? test/listing_pricing_t11_test.dart
+?? test/listing_project_tag_t5_test.dart
+?? test/listing_residential_t6_test.dart
+?? test/listing_step_visibility_t3_test.dart
+?? test/listing_validation_rules_t2_test.dart
+?? test/listing_validators_parity_test.dart
+?? test/phase6_network_social_upgrade_test.dart
+?? test/phase7_subscription_billing_test.dart
+?? test/phase8_social_test.dart
+?? test/phase9_network_test.dart
+?? test/post_property_shell_layout_test.dart
+?? test/premium_launch_banner_layout_test.dart
+?? test/search_bar_parity_test.dart
+?? test/shared_components_test.dart
+?? test/shell_overflow_probe.dart
+?? test/support/
+?? test/user_profile_model_test.dart
+?? test/wizard_end_to_end_test.dart

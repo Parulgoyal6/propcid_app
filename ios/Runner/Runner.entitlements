@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+		Team-invite Universal Link: see InviteDeepLinkHandler and
+		invite-team-member/index.ts:149 (the link it actually sends,
+		https://propcid.com/accept-invite?invitation=...&token=...).
+
+		This entitlement alone is not sufficient. It also requires:
+		  1. An Apple Developer "Associated Domains" capability enabled for
+		     this app's real bundle identifier (still the Flutter default
+		     placeholder, com.example.propcidApp, as of this change) and a
+		     matching provisioning profile — configured in Xcode/the Apple
+		     Developer portal, outside this repo.
+		  2. https://propcid.com/.well-known/apple-app-site-association
+		     listing "<Apple Team ID>.<real bundle id>" under "appID" —
+		     hosted on the propcid.com web deployment, outside this repo.
+		Until both exist, iOS will not treat this as a Universal Link; the
+		entitlement is still correct to declare now.
+	-->
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:propcid.com</string>
+	</array>
+</dict>
+</plist>
